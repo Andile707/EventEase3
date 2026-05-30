@@ -1,0 +1,49 @@
+﻿@model Eventease.Models.EventModel
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<h1>Event Details</h1>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">Event Name</dt>
+    <dd class="col-sm-10">@Model.EventName</dd>
+
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.EventDescription</dd>
+
+    <dt class="col-sm-2">Venue ID</dt>
+    <dd class="col-sm-10">@Model.VenueId</dd>
+
+    <dt class="col-sm-2">Event Date</dt>
+    <dd class="col-sm-10">@Model.EventDate.ToString("yyyy-MM-dd")</dd>
+</dl>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <h3>Bookings</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Booking Name</th>
+                <th>Booking Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.BookingName</td>
+                    <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Edit" asp-route-id="@Model.EventId" class="btn btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

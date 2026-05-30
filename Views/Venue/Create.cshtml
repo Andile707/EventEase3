@@ -1,0 +1,48 @@
+﻿@model Eventease.Models.VenueModel
+
+@{
+    ViewData["Title"] = "Create Venue";
+}
+
+<h1>Create Venue</h1>
+
+<hr />
+
+<form asp-action="Create" enctype="multipart/form-data">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="venueName" class="control-label"></label>
+        <input asp-for="venueName" class="form-control" />
+        <span asp-validation-for="venueName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="venueLocation" class="control-label"></label>
+        <input asp-for="venueLocation" class="form-control" />
+        <span asp-validation-for="venueLocation" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="venueCapacity" class="control-label"></label>
+        <input asp-for="venueCapacity" class="form-control" />
+        <span asp-validation-for="venueCapacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="venueImage" class="control-label"></label>
+        <input asp-for="venueImageFile" type="file" class="form-control" />
+        <span asp-validation-for="venueImageFile"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

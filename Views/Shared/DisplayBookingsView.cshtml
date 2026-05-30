@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BookingDisplayViewModel>
+
+<form asp-action="DisplayBookingsView" method="get">
+    <input type="text" name="searchTerm" placeholder="Search bookings..." value="@ViewBag.SearchTerm" />
+
+    <input type="date" name="bookingDate" value="@ViewBag.BookingDate" />
+
+    <button type="submit">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking</th>
+            <th>Event</th>
+            <th>Venue</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.BookingId</td>
+                <td>@booking.EventName</td>
+                <td>@booking.VenueName</td>
+                <td>@booking.BookingDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

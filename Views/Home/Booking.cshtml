@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Booking";
+}
+
+@model Eventease.Models.BookingModel
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Use the page to make bookings.</p>
+<a class="btn btn-primary" asp-controller="Home" asp-action="CreateBooking">Make a Booking</a>
+<a class="btn btn-primary" asp-controller="Home" asp-action="DisplayBookings">Display all Bookings</a>
+<!--<form asp-action="BookingForm" asp-controller="Home">
+    <input hidden class="form-control" type="number" placeholder="0" asp-for="BookingId" />
+    <label class="mt-4">BookingName</label>
+    <input class="form-control" type="text" placeholder="BookingName" asp-for="BookingName" />
+    <span asp-validation-for="BookingName" class="text-danger"></span>
+    <label class="mt-4">VenueId</label>
+    <input class="form-control" type="text" placeholder="VenueID" asp-for="VenueId" />
+    <span asp-validation-for="VenueId" class="text-danger"></span>
+    <label class="mt-4">EventId</label>
+    <input class="form-control" type="number" placeholder="EventID" asp-for="EventId" />
+    <span asp-validation-for="EventId" class="text-danger"></span>
+    <label class"mt-4">BookingDate</label>
+    <input class="form-control" type="date" placehoder="Date" asp-for="BookingDate" />
+    <span asp-validation-for="BookingDate" class="text-danger"></span>
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>-->

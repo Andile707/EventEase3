@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Display Venues";
+}
+
+@model List<VenueModel>
+
+<div class="text-center">
+    <h1 class="dispay-4">Bookings</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-6"></div>
+        <form class="d-flex" asp-action="Search" asp-asp-controller="Home">
+            <input name="searchString" class="form-control me-1" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-dark" type="submit">Search by name</button>
+        </form>
+        <div class="col-md-t">
+            <a asp-action="Index" class="text-dark">Back to Full list</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>VenueId</th>
+                <th>VenueName</th>
+                <th>VenueLocation</th>
+                <th>VenueCapacity</th>
+                <th>VenueImageUrl</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                    foreach (var venueItem in Model)
+                    {
+                        <tr>
+                            <td>@venueItem.venueId</td>
+                            <td>@venueItem.venueName</td>
+                            <td>@venueItem.venueLocation</td>
+                            <td>@venueItem.venueCapacity</td>
+                            <td>@venueItem.venueImage</td>
+                            <td>
+                                <a asp-action="Venue" asp-route-itemid="@venueItem.venueId">Edit</a>
+                                <a asp-action="DeleteVenue" asp-route-itemid="@venueItem.venueId">Delete</a>
+                                <a asp-action="BookingForm" asp-route-itemid="@venueItem.venueId">Add</a>
+                            </td>
+                        </tr>
+                    }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "CreateVenue";
+}
+
+@model Eventease.Models.VenueModel
+
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+
+
+
+<form method="post" asp-action="CreateVenue" asp-controller="Venue">
+    <!--<input hidden class="form-control" type="number" placeholder="0" asp-for="venueId" />-->
+    <div>
+        <label asp-for="venueName" class="mt-4">VenueName</label>
+        <input class="form-control" type="text" placeholder="VenueName" asp-for="venueName" />
+        <span asp-validation-for="venueName" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">VenueLocation</label>
+        <input class="form-control" type="text" placeholder="VenueLocation" asp-for="venueLocation" />
+        <span asp-validation-for="venueLocation" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">VenueCapacity</label>
+        <input class="form-control" type="number" placeholder="VenueCapacity" asp-for="venueCapacity" />
+        <span asp-validation-for="venueCapacity" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">VenueImage</label>
+        <input class="form-control" type="file" asp-for="venueImage" />
+        <span asp-validation-for="venueImage" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>
+

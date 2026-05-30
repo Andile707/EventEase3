@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Venue";
+}
+
+@model Eventease.Models.VenueModel
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+
+<form method="post" enctype="multipart/form-data" asp-action="Venue" asp-controller="Venue">
+    <input hidden class="form-control" type="number" placeholder="0" asp-for="venueId" />
+    <div>
+        <label class="mt-4">Venue Name</label>
+        <input class="form-control" type="text" placeholder="VenueName" asp-for="venueName" />
+        <span asp-validation-for="venueName" class="text-danger"></span>
+    </div>
+    
+    <div>
+        <label class="mt-4">Venue Location</label>
+        <input class="form-control" type="text" placeholder="Venue Location" asp-for="venueLocation" />
+        <span asp-validation-for="venueLocation" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">Venue Capacity</label>
+        <input class="form-control" type="text" placeholder="Venue Capacity" asp-for="venueCapacity" />
+        <span asp-validation-for="venueCapacity" class="text-danger"></span>
+    </div>
+    <div>
+        <label class"mt-4">Venue Image</label>
+        <div>
+        <input class="custom-file-input" id="customFile" type="file" asp-for="venueImage" />
+        <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        <span asp-validation-for="venueImage" class="text-danger"></span>
+        
+    </div>
+    <div>
+        
+    </div>
+
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>

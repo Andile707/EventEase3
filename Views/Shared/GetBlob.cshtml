@@ -1,0 +1,22 @@
+﻿@model UploadModel
+@{
+    ViewData["Title"] = "Azure Page";
+}
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data" asp-action="UploadBlob" asp-controller="AzureBlob">
+        
+        <input type="file" name="file" />
+        <span asp-validation-for="File" class="text-danger"></span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+<!--if (ViewBag.Message != null)
+{
+    <p>ViewBag.Message</p>
+
+    <a href="ViewBag.BlobUrl" target="_blank">
+        View Uploaded File
+    </a>
+}-->

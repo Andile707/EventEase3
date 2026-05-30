@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Display Events";
+}
+
+@model List<EventModel>
+
+<div class="text-center">
+    <h1 class="dispay-4">Events</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-6"></div>
+        <form class="d-flex" asp-action="Search" asp-asp-controller="Home">
+            <input name="searchString" class="form-control me-1" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-dark" type="submit">Search by name</button>
+        </form>
+        <div class="col-md-t">
+            <a asp-action="Index" class="text-dark">Back to Full list</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>BookingId</th>
+                <th>BookingName</th>
+                <th>VenueId</th>
+                <th>EventId</th>
+                <th>BookingDate</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                    foreach (var eventItem in Model)
+                    {
+                        <tr>
+                            <td>@eventItem.EventId</td>
+                            <td>@eventItem.EventName</td>
+                            <td>@eventItem.VenueId</td>
+                            <td>@eventItem.EventId</td>
+                            <td>@eventItem.EventDate</td>
+                            <td>
+                                <a asp-action="Event" asp-route-itemid="@eventItem.EventId">Edit</a>
+                                <a asp-action="DeleteBooking" asp-route-itemid="@eventItem.EventId">Delete</a>
+                                <a asp-action="BookingForm" asp-route-itemid="@eventItem.EventId">Add</a>
+                            </td>
+                        </tr>
+                    }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Eventease.Models.EventModel>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Events</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Event</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Description</th>
+            <th>Venue ID</th>
+            <th>Event Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.EventName</td>
+            <td>@item.EventDescription</td>
+            <td>@item.VenueId</td>
+            <td>@item.EventDate.ToString("yyyy-MM-dd")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EventId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EventId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}

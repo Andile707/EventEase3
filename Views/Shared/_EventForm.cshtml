@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Event";
+}
+
+@model Eventease.Models.EventModel
+
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<form asp-action="Event" asp-controller="Event">
+    <input hidden class="form-control" type="number" placeholder="0" asp-for="EventId" />
+    <div>
+        <label class="mt-4">EventName</label>
+        <input class="form-control" type="text" placeholder="EventName" asp-for="EventName" />
+        <span asp-validation-for="EventName" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">VenueId</label>
+       <!-- <select asp-for="VenueId" class="form-control" asp-items="">
+            <option value="">Select Venue</option>
+        </select> -->
+        <span asp-validation-for="VenueId" class="text-danger"></span>
+    </div>
+    <div>
+        <label class="mt-4">Event Description</label>
+        <input class="form-control" type="text" placeholder="Event Description" asp-for="EventDescription" />
+        <span asp-validation-for="EventDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label class"mt-4">Event Date</label>
+        <input class="form-control" type="date" asp-for="EventDate" />
+        <span asp-validation-for="EventDate" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>

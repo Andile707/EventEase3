@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p><a href="Events Management with EventEase">Event Management with EventEase</a>.</p>
+    <a asp-controller="Event" asp-action="Index" class="btn btn-primary">Event</a><br>
+    <a asp-controller="Venue" asp-action="Index" class="btn">Venue</a><br/>
+    <a asp-controller="Booking" asp-action="Index" class="btn btn-secondary">Manage Booking</a>
+    <a asp-controller="Home" asp-action="EventsandVenues" class="btn btn-secondary">Search for Events and Venues</a>
+    <a asp-controller="AzureBlob" asp-action="GetBlob" class="btn btn-secondary">Upload Image to Azure</a><br />
+    <div>
+        <br />
+        <a asp-controller="BookingDisplay" asp-action="DisplayBookingsView" class="btn btn-secondary">Consolidated View</a>
+    </div>
+    
+</div>
