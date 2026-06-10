@@ -97,6 +97,7 @@ namespace Eventease.Controllers
                 existingVenue.venueName = venue.venueName;
                 existingVenue.venueLocation = venue.venueLocation;
                 existingVenue.venueCapacity = venue.venueCapacity;
+                existingVenue.IsAvailable = venue.IsAvailable;
 
                 if (venue.venueImageFile != null && venue.venueImageFile.Length > 0)
                 {

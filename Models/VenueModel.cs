@@ -11,7 +11,10 @@ namespace Eventease.Models
         public string? venueLocation { get; set; }
         public int venueCapacity { get; set; }
 
+        public bool IsAvailable { get; set; } = true;
+
         public string? venueImage { get; set; }
+
 
         [Display(Name = "Select Venue Image")]
         [NotMapped]

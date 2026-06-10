@@ -108,6 +108,9 @@ namespace Eventease.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("venueId"));
 
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit");
+
                     b.Property<int>("venueCapacity")
                         .HasColumnType("int");
 

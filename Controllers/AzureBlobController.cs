@@ -15,11 +15,11 @@ namespace Eventease.Controllers
         public AzureBlobController(IAzureService azservice)
         {
             _service = azservice;
-        
+
         }
 
         //MVC Metho to get data from Azure Blob
-        
+
         public IActionResult GetBlob()
         {
             return View();
@@ -75,3 +75,4 @@ namespace Eventease.Controllers
         }
     }
 }
+

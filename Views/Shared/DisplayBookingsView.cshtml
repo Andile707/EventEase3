@@ -1,11 +1,57 @@
 ﻿@model IEnumerable<BookingDisplayViewModel>
 
-<form asp-action="DisplayBookingsView" method="get">
-    <input type="text" name="searchTerm" placeholder="Search bookings..." value="@ViewBag.SearchTerm" />
 
-    <input type="date" name="bookingDate" value="@ViewBag.BookingDate" />
+<form asp-action="DisplayBookingsView" method="get" class="mb-3">
 
-    <button type="submit">Search</button>
+    <input type="text"
+           name="searchTerm"
+           placeholder="Search bookings..."
+           value="@ViewBag.SearchTerm"
+           class="form-control mb-2" />
+
+    <select name="eventTypeId"
+            asp-items="ViewBag.EventTypes"
+            class="form-control mb-2">
+        <option value="">All Event Types</option>
+    </select>
+
+    <select name="venueId"
+            asp-items="ViewBag.Venues"
+            class="form-control mb-2">
+        <option value="">All Venues</option>
+    </select>
+
+    <div class="form-group mb-2">
+        <label for="startDate">Start Date</label>
+        <input type="date"
+               id="startDate"
+               name="startDate"
+               value="@ViewBag.StartDate"
+               class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="endDate">End Date</label>
+        <input type="date"
+               id="endDate"
+               name="endDate"
+               value="@ViewBag.EndDate"
+               class="form-control" />
+    </div>
+
+    <label class="mb-2">
+        <input type="checkbox"
+               name="availableOnly"
+               value="true"
+               checked="@(ViewBag.AvailableOnly == true)" />
+        Available only
+    </label>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-action="DisplayBookingsView" class="btn btn-secondary">Clear</a>
+
 </form>
 
 <table class="table">
